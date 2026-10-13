@@ -1,0 +1,72 @@
+{
+  "slug": "plant-manager",
+  "title": "Plant Manager",
+  "summary": "Keep plant records and care tasks together, with a map/placement extension and Home Assistant reminders. The underlying plant-record application is HortusFox; this repository contains the custom integration and deployment work around it, not a claim of authorship over HortusFox.",
+  "features": [
+    [
+      "Plant records",
+      "Organise names, photos, locations and notes in the underlying plant application.",
+      "Hosted care workflow"
+    ],
+    [
+      "Separate care tasks",
+      "Track watering, fertilising and other tasks with their own dates/recurrence.",
+      "Hosted care workflow"
+    ],
+    [
+      "Completion-based recurrence",
+      "The custom worker schedules the next occurrence after processing completion.",
+      "Hosted care workflow"
+    ],
+    [
+      "Reminders",
+      "Send due/overdue summaries through a configured HA mobile notification target.",
+      "Hosted care workflow"
+    ],
+    [
+      "Map and bottles",
+      "Use the hosted plant-map extension alongside care records.",
+      "Hosted care workflow"
+    ],
+    [
+      "Photo identification",
+      "Optional connected Pl@ntNet recognition sends the selected photo to that service.",
+      "Hosted care workflow"
+    ]
+  ],
+  "workflows": [
+    [
+      "Start a plant record",
+      [
+        "Choose Add Plant and enter a useful name and location. Add a clear photo and notes that help distinguish it from similar plants.",
+        "Keep identification uncertainty explicit. A probable identification should not silently become a confirmed species.",
+        "Use Search or Locations to return to the plant; the map is a placement aid rather than a replacement for its care record."
+      ]
+    ],
+    [
+      "Create useful care tasks",
+      [
+        "Open Tasks and Create new. Give the task a clear action, description and due date. Associate it with the relevant plant through the task/plant controls.",
+        "Keep watering and fertiliser schedules separate. Set recurrence only when appropriate for that task.",
+        "After checking the plant and performing the care, mark the task done. The custom recurrence worker advances from processing completion; overdue work stays due until completed."
+      ]
+    ],
+    [
+      "Use reminders and history",
+      [
+        "Review the due/overdue list before acting. A notification is a prompt to inspect conditions, not an instruction to water dry and wet pots alike.",
+        "Open the plant history or completed-task list to check what was actually recorded.",
+        "If recurrence/reminders stop, inspect the custom worker and HA connection. Do not also enable an independent recurrence cron that advances tasks regardless of completion."
+      ]
+    ],
+    [
+      "Identify from a photo",
+      [
+        "Use the identification/quick-scan control and choose a clear photo only if you intend to send it to the configured recognition service.",
+        "Compare the candidates with visible plant characteristics; keep uncertainty in the record.",
+        "Recognition credentials belong in the protected application configuration, not in an exported project or public issue."
+      ]
+    ]
+  ],
+  "limits": "HortusFox and its dependencies retain their upstream licences. This package requires the underlying plant application, database, gateway and configured reminder worker. The demo simulates a care queue without sending notifications."
+}

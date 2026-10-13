@@ -1,0 +1,39 @@
+[
+  {
+    "boxes": [
+      {
+        "h": 54,
+        "selector": "#interval",
+        "text": "The example schedules from completion, not from an ignored overdue date.",
+        "title": "Set a care interval",
+        "w": 260,
+        "x": 318,
+        "y": 550.515625
+      },
+      {
+        "h": 59.1875,
+        "selector": "#complete",
+        "text": "Only mark done after the care was performed.",
+        "title": "Record completed care",
+        "w": 260,
+        "x": 318,
+        "y": 613.515625
+      },
+      {
+        "h": 451.75,
+        "selector": "#result",
+        "text": "Completed care moves the next occurrence forward; no real notification is sent.",
+        "title": "See the reminder outcome",
+        "w": 517.078125,
+        "x": 1228.90625,
+        "y": 403.515625
+      }
+    ],
+    "height": 1408,
+    "width": 2055,
+    "key": "simulation",
+    "title": "Try the working offline example",
+    "caption": "Screenshot of this project’s interactive demo. Side-by-side services are explicitly simulated.",
+    "cropHeight": 896.265625
+  }
+]

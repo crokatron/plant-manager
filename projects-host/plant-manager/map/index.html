@@ -1,0 +1,48 @@
+<!doctype html>
+
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#11211b"><title>Plant map · Mungoon</title><link rel="stylesheet" href="/plant-map/style.css?v=20261012-plant-groups-1"><script defer src="/plant-map/water-status.js?v=20261011-2"></script><script defer src="/plant-map/plant-clusters.js?v=20261012-1"></script><script defer src="/plant-map/plant-camera.js?v=20261012-plant-groups-1"></script><script defer src="/plant-map/app.js?v=20261012-plant-groups-1"></script></head>
+
+<body data-panel="map">
+
+<header><a class="brand" href="/plant-map/?v=20261012-plant-groups-1" aria-label="Plant map home"><span class="brandmark">♧</span><span><small>MUNGOON PLANTS</small><strong>Plant map & bottles</strong></span></a><nav><a href="/">Plant collection ↗</a><button id="refresh">Refresh</button></nav></header>
+
+<main>
+
+ <section class="intro"><div><p class="eyebrow">YOUR HOME, GROWING</p><h1>A place for every plant.</h1><p>Move plants as life changes. Keep track of every terracotta watering bottle.</p></div></section>
+
+ <p id="status" role="status">Loading your collection…</p>
+
+ <div class="workspace">
+
+  <section class="map-panel" aria-label="Plant floor plan"><div class="panel-top"><div><h2>Plant floor plan</h2><p id="map-caption">Your home layout, just for plants</p></div><label class="compact">View room<select id="room-view" aria-label="View room"><option value="">Whole home</option></select></label></div>
+
+   <div class="edit-toolbar"><button id="edit-map" aria-pressed="false">Edit placements</button><button id="undo-map" hidden>Undo last move</button><p id="edit-help">Click a plant photo to see its information.</p><p id="map-feedback" role="status"></p></div>
+
+   <div id="placement" hidden><strong id="placement-title"></strong><span>Tap a spot inside a room. Save when it looks right.</span><div><button id="place-confirm" class="primary" disabled>Place here</button><button id="place-cancel">Cancel</button></div></div>
+
+   <div class="view-tools" aria-label="Map orientation"><button id="rotate-left" aria-label="Rotate map left">↶ 15°</button><label>Angle <input id="map-angle" aria-label="Map rotation degrees" type="number" min="0" max="359" step="15" value="0"></label><button id="rotate-right" aria-label="Rotate map right">15° ↷</button><button id="map-reset">Drawing up</button><button id="gestures" aria-label="Map gestures and shortcuts">Help</button><output id="map-zoom" aria-label="Map zoom">100%</output></div><div class="map-stage" id="map-stage"><svg id="map" role="group" aria-label="Plant positions on your home floor plan" viewBox="0 0 1000 1000"></svg><div class="map-tools"><button id="zoom-out" aria-label="Zoom out">−</button><button id="fit">Fit home</button><button id="zoom-in" aria-label="Zoom in">+</button></div><div id="map-empty" hidden>Add a plant to the map from your collection below.</div></div>
+
+   <div class="map-footer"><span><i class="dot" style="background:#4dcc79"></i> Checked · water available</span><span><i class="dot" style="background:#efc34e"></i> Low water / check soon</span><span><i class="dot" style="background:#ed6664"></i> Empty / unknown / quarantine</span><span class="gesture-hint">Drag to pan · Scroll / pinch to zoom · Twist to rotate</span></div>
+
+  </section>
+
+  <aside class="collection"><div class="panel-top"><div><h2>Your plants <span id="plant-count"></span></h2><p>Open a plant to move it or log a bottle.</p></div><a href="/" class="text-link">Add plants ↗</a></div><label class="search-label">Find a plant<input id="search" type="search" placeholder="Name, species or room…"></label><div class="filters" role="group" aria-label="Filter plants"><button class="active" data-filter="all">All</button><button data-filter="empty">Empty bottles</button><button data-filter="unplaced">Not on map</button></div><div id="plant-list" aria-live="polite"></div></aside>
+
+ </div>
+
+ <section class="insights"><div id="schedule-panel"><h2>Scheduled bottle checks</h2><p>Checks group naturally by day. Empty dates are estimates; record what you find.</p><div id="check-list"></div></div><div id="stats-panel"><h2>Your collection</h2><div class="stats" id="stats" aria-live="polite"></div><h2>Water use & refill rounds</h2><p>Estimated bottle delivery, including soil evaporation. A 1 L bottle may last about a third longer than 750 ml under the same conditions.</p><div id="water-ranking"></div></div></section>
+
+ <footer>Empty status is recorded when you check the bottle. The tool does not measure water automatically.<br>Photos and plant records live in your Plant Manager; placement and bottle history are saved on the NAS.</footer>
+
+</main>
+
+<nav class="workspace-nav" aria-label="Plant workspace"><button data-panel-button="map" aria-pressed="true">Map</button><button data-panel-button="plants" aria-pressed="false">Plants</button><button data-panel-button="schedule" aria-pressed="false">Water schedule</button><button data-panel-button="stats" aria-pressed="false">Stats</button></nav>
+
+<dialog id="gesture-dialog"><form method="dialog" class="dialog-close"><button aria-label="Close map help">×</button></form><h2>Move around your home</h2><p><b>Mouse / trackpad:</b> scroll over the map to zoom toward your pointer. Drag empty space to pan. Space + drag or the middle mouse button pans even over a plant.</p><p><b>Touch:</b> drag empty space to pan; use two fingers to pan, pinch to zoom, or twist to rotate. A second finger cancels any tentative plant move.</p><p><b>Plant details:</b> click, tap or hold a plant photo. Keyboard: focus a plant and press Enter.</p><p><b>Edit placements:</b> drag a photo with one finger or the left mouse button, then release inside a room to save. Escape cancels; Ctrl / ⌘ + Z undoes the last move.</p><p><b>View:</b> choose a room to focus, Fit home to see everything, and Drawing up to reset rotation. Photos grow gently as you zoom; labels stay upright and readable.</p><form method="dialog" class="dialog-buttons"><button>Got it</button></form></dialog>
+
+<dialog id="plant-dialog"><form method="dialog" class="dialog-close"><button aria-label="Close plant details">×</button></form><div id="plant-heading"></div><div class="plant-actions"><button id="move-plant">Move on map</button><a id="native-record" href="/">Plant record ↗</a></div><div id="bottle-summary"></div><div class="add-bottle"><label>Another bottle<select id="new-bottle-size"><option value="750">750 ml</option><option value="1000">1 L</option></select></label><button id="add-bottle">+ Add bottle</button></div><div class="settings"><label>Plant notes<textarea id="notes" rows="2" placeholder="Spike, pot or placement notes…" maxlength="2000"></textarea></label><button id="save-profile">Save notes</button></div><div class="history-heading"><h3>Bottle history</h3><button id="undo" class="text-button">Undo last action</button></div><div id="bottle-history"></div><details><summary>Room moves</summary><div id="move-history"></div></details><p class="dialog-error" id="detail-error" role="alert"></p></dialog>
+
+<dialog id="event-dialog"><h2 id="event-title"></h2><p id="event-help"></p><form id="event-form"><label id="event-capacity-label">Bottle size<select id="event-capacity"><option value="750">750 ml</option><option value="1000">1 L</option></select></label><label>Date & time <small>Dubai time</small><input id="event-time" type="datetime-local" required></label><label class="check" id="exact-label"><input id="exact" type="checkbox"> I know the exact time it ran empty</label><label class="check" id="replace-label" hidden><input id="replace" type="checkbox"> Replace or top up the current bottle. Its old cycle will be recorded as replaced, not empty.</label><p class="dialog-error" id="event-error" role="alert"></p><div class="dialog-buttons"><button type="button" id="event-cancel">Cancel</button><button class="primary" type="submit" id="event-save">Save</button></div></form></dialog>
+
+</body></html>
+
