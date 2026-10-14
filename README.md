@@ -4,7 +4,9 @@
 
 Keep plant records and care tasks together, with a map/placement extension and Home Assistant reminders. The underlying plant-record application is HortusFox; this repository contains the custom integration and deployment work around it, not a claim of authorship over HortusFox.
 
-**Private preview · not published.**
+[Publication checks and remaining limits](docs/PUBLICATION.md)
+
+**Public source preview · MIT for original contributions.**
 
 [Open the visual manual](docs/USER-MANUAL.md) · [Download the self-contained demo](demo.html) · [Release notes](CHANGELOG.md)
 

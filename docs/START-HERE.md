@@ -12,4 +12,4 @@ Custom HortusFox integration, plant mapping, task recurrence and HA reminders. C
 
 **Next maintainer action:** Verify recurrence-from-completion, quiet hours, notification deduplication and a consistent database/photo restore. Reminder --test sends a real notification and is not a documentation check. Confirm current service/mount state rather than assuming the October 4 installation notes remain live.
 
-**Status:** private upload verified on 14 October 2026. These guides accompany the private source package. Live runtime, data backups and full recovery were not retested. Public release needs separate approval.
+**Status:** private upload verified on 14 October 2026. These guides accompany the source package. Live runtime, data backups and full recovery were not retested. Public sharing was authorised on 14 October 2026; the NAS backup remains private.
