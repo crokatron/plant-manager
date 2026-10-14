@@ -1,5 +1,7 @@
 # Plant Manager
 
+**Maintaining this project? [Start here](docs/START-HERE.md) · [Detailed handover](docs/HANDOVER.md)**
+
 Keep plant records and care tasks together, with a map/placement extension and Home Assistant reminders. The underlying plant-record application is HortusFox; this repository contains the custom integration and deployment work around it, not a claim of authorship over HortusFox.
 
 **Private preview · not published.**
